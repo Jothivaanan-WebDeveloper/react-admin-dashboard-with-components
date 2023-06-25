@@ -16,6 +16,8 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import './Sidebar.css';
+import { ArrowLeft, CloseOutlined, KeyboardDoubleArrowLeft } from "@mui/icons-material";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -51,13 +53,14 @@ const Sidebar = () => {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
-          padding: "5px 35px 5px 20px !important",
+          padding: "5px 5px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
           color: "#868dfb !important",
         },
         "& .pro-menu-item.active": {
           color: "#6870fa !important",
+          borderLeft: '3px solid #6870fa !important',
         },
       }}
     >
@@ -68,22 +71,29 @@ const Sidebar = () => {
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
-              margin: "10px 0 20px 0",
+              margin: "5px 0 10px 0",
               color: colors.grey[100],
             }}
           >
+
             {!isCollapsed && (
               <Box
                 display="flex"
-                justifyContent="space-between"
+                justifyContent="end"
                 alignItems="center"
-                ml="15px"
+                // ml="15px"
               >
-                <Typography variant="h3" color={colors.grey[100]}>
+                {/* <Typography variant="h3" color={colors.grey[100]}>
                   ADMINIS
-                </Typography>
-                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                  <MenuOutlinedIcon />
+                </Typography> */}
+                <IconButton className="s-closemenu"
+                  onClick={() => setIsCollapsed(!isCollapsed)}
+                >
+                  {/* <MenuOutlinedIcon /> */}
+                  {/* <IconButton aria-label="Close Menu" color="inherit"> */}
+                  <KeyboardDoubleArrowLeft />
+                  <label className="s-closemenu-span">Close menu</label>
+                  {/* </IconButton> */}
                 </IconButton>
               </Box>
             )}
@@ -96,22 +106,22 @@ const Sidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/user.png`}
+                  src={`../../assets/timesheet.png`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
               <Box textAlign="center">
                 <Typography
-                  variant="h2"
+                  variant="h3"
                   color={colors.grey[100]}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Ed Roh
+                  OT Booking
                 </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
+                {/* <Typography variant="h5" color={colors.greenAccent[500]}>
                   VP Fancy Admin
-                </Typography>
+                </Typography> */}
               </Box>
             </Box>
           )}

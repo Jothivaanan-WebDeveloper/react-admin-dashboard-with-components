@@ -10,7 +10,7 @@ import Form from "./scenes/form";
 import FAQ from "./scenes/faq";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-import Calendar from "./scenes/calendar/calendar";
+import EmployeeDashboard from "./scenes/Employee Dashboard/EmployeeDashboard";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -25,7 +25,7 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-              <Route path="/" element={<Dashboard />} />
+              <Route path="/" element={<EmployeeDashboard />} />
               <Route path="/team" element={<Team />} />
               <Route path="/contacts" element={<Contacts />} />
               <Route path="/invoices" element={<Invoices />} />

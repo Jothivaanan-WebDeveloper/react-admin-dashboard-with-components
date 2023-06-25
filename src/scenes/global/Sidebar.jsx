@@ -17,7 +17,7 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import './Sidebar.css';
-import { ArrowLeft, CloseOutlined, KeyboardDoubleArrowLeft } from "@mui/icons-material";
+import { KeyboardDoubleArrowLeft } from "@mui/icons-material";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -81,7 +81,7 @@ const Sidebar = () => {
                 display="flex"
                 justifyContent="end"
                 alignItems="center"
-                // ml="15px"
+              // ml="15px"
               >
                 {/* <Typography variant="h3" color={colors.grey[100]}>
                   ADMINIS
@@ -92,7 +92,7 @@ const Sidebar = () => {
                   {/* <MenuOutlinedIcon /> */}
                   {/* <IconButton aria-label="Close Menu" color="inherit"> */}
                   <KeyboardDoubleArrowLeft />
-                  <label className="s-closemenu-span">Close menu</label>
+                  {/* <label className="s-closemenu-span">Close menu</label> */}
                   {/* </IconButton> */}
                 </IconButton>
               </Box>
@@ -110,7 +110,7 @@ const Sidebar = () => {
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
-              <Box textAlign="center">
+              {/* <Box textAlign="center">
                 <Typography
                   variant="h3"
                   color={colors.grey[100]}
@@ -119,10 +119,10 @@ const Sidebar = () => {
                 >
                   OT Booking
                 </Typography>
-                {/* <Typography variant="h5" color={colors.greenAccent[500]}>
+                <Typography variant="h5" color={colors.greenAccent[500]}>
                   VP Fancy Admin
-                </Typography> */}
-              </Box>
+                </Typography> 
+              </Box> */}
             </Box>
           )}
 

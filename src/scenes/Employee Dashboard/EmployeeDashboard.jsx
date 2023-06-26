@@ -4,9 +4,8 @@ import { tokens } from "../../theme";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import Header from "../../components/Header";
 import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
-import { createRoot } from 'react-dom/client';
 import { AgGridReact } from 'ag-grid-react'; // the AG Grid React Component
-
+import './EmployeeDashboard.css';
 import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, always needed
 import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
 const EmployeeDashboard = () => {
@@ -48,25 +47,24 @@ const EmployeeDashboard = () => {
         <>
             <Box m="20px">
                 {/* HEADER */}
-                <Box display="flex" justifyContent="space-between" alignItems="center">
+                <div>
                     <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+                </div>
 
-                    <Box>
-                        <Button
-                            size='small'
-                            sx={{
-                                backgroundColor: colors.blueAccent[700],
-                                color: colors.grey[300],
-                                // fontSize: "14px",
-                                fontWeight: "bold",
-                                padding: "5px 8px",
-                            }}
-                        >
-                            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-                            Download Reports
-                        </Button>
-                    </Box>
-                </Box>
+                <div className='d-flex justify-content-end'>
+                    <Button className='ed-downloadreports'
+                        sx={{
+                            backgroundColor: colors.blueAccent[700],
+                            color: 'white',
+                            // fontSize: "14px",
+                            fontWeight: "bold",
+                            padding: "5px 8px",
+                        }}
+                    >
+                        <DownloadOutlinedIcon sx={{ mr: "10px" }} />
+                        Download Reports
+                    </Button>
+                </div>
 
                 <Box
                     sx={{

@@ -17,7 +17,7 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import './Sidebar.css';
-import { KeyboardDoubleArrowLeft } from "@mui/icons-material";
+import { CalendarMonthOutlined, KeyboardDoubleArrowLeft } from "@mui/icons-material";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -143,13 +143,15 @@ const Sidebar = () => {
               Data
             </Typography>
             <Item
-              title="Manage Team"
+              title="OT Management"
               to="/team"
-              icon={<PeopleOutlinedIcon />}
+              icon={<CalendarMonthOutlined
+                 />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            
+            {/* <Item
               title="Contacts Information"
               to="/contacts"
               icon={<ContactsOutlinedIcon />}
@@ -227,7 +229,7 @@ const Sidebar = () => {
               icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
           </Box>
         </Menu>
       </ProSidebar>

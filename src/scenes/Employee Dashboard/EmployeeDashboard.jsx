@@ -94,6 +94,7 @@ const EmployeeDashboard = () => {
                 <GridData
                     rowData={rowData}
                     columnDefs={columnDefs}
+                    // sadad = {sadasd}
                 />
 
                 {/* <Box

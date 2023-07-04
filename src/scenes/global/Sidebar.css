@@ -24,3 +24,10 @@
     cursor: pointer !important;
     background-color: inherit;
 }
+
+.pro-sidebar {
+    color: #ADADAD;
+    height: 100%;
+    width: 210px;
+    min-width: 200px;
+}

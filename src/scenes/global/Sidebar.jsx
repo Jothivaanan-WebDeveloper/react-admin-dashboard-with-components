@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -19,29 +19,56 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import './Sidebar.css';
 import { CalendarMonthOutlined, KeyboardDoubleArrowLeft } from "@mui/icons-material";
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
+// const Item = ({ title, to, icon, selected, setSelected }) => {
+//   const theme = useTheme();
+//   const colors = tokens(theme.palette.mode);
+//   return (
+//     <MenuItem
+//       active={selected === title}
+//       style={{
+//         color: colors.grey[100],
+//       }}
+//       onClick={() => setSelected(title)}
+//       icon={icon}
+//     >
+//       <Typography>{title}</Typography>
+//       <Link to={to} />
+//     </MenuItem>
+//   );
+// };
+const Item = ({ title, to, icon, selected, setSelected, setIsCollapsed }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [isSelected, setIsSelected] = useState(true);
   return (
     <MenuItem
-      active={selected === title}
+      active={isSelected}
       style={{
-        color: colors.grey[100],
+        // color: "#595959",
+        // color: '#FC8019',
+        color: 'black',
       }}
-      onClick={() => setSelected(title)}
+      onClick={() => {
+        setSelected(title);
+        setIsCollapsed(true);
+      }}
       icon={icon}
     >
       <Typography>{title}</Typography>
-      <Link to={to} />
+      <NavLink to={to} className={({ isActive }) => {
+        return isActive ? setIsSelected(true)
+          : setIsSelected(false)
+      }
+      }></NavLink>
     </MenuItem>
   );
 };
-
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [selected, setSelected] = useState("Dashboard");
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [selected, setSelected] = useState("");
+  // const [selected, setSelected] = useState("Dashboard");
 
   return (
     <Box
@@ -133,6 +160,7 @@ const Sidebar = () => {
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
+              setIsCollapsed={setIsCollapsed}
             />
 
             <Typography
@@ -149,6 +177,7 @@ const Sidebar = () => {
                  />}
               selected={selected}
               setSelected={setSelected}
+              setIsCollapsed={setIsCollapsed}
             />
             
             {/* <Item
